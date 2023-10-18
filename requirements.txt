@@ -9,3 +9,4 @@ celery
 redis
 docker
 dj-database-url
+kombu<6.0,>=5.3.0
