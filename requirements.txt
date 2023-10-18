@@ -1,6 +1,10 @@
 Django
 django-autoslug
 Pillow
+django-hitcount
 django-environ
 gunicorn
 psycopg2-binary
+celery
+redis
+docker

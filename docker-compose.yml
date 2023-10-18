@@ -13,7 +13,31 @@ services:
       - "./dist/media:/app/media"
     depends_on:
       - db
-  
+      - pgdb
+      - redis
+  celery:
+    build: .
+    command: celery worker app=movies --loglevel=info
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - django
+      - redis
+  pgdb:
+    image: postgres
+    container_name: pgdb
+    environment:
+         - POSTGRES_DB=postgres
+         - POSTGRES_USER=postgres
+         - POSTGRES_PASS=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+  redis:
+        image: "redis:alpine"
+
+
+
+
   db:
     image: postgres
     restart: always
@@ -31,3 +55,4 @@ services:
 volumes:
   static_data:
   database:
+  pgdata:
