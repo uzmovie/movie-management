@@ -48,7 +48,7 @@ def type_wise_movie_view(request, slug):
     # if hit_count_response.hit_counted:
     #     hits =+ 1
     movie_type = MovieType.objects.get(slug=slug)
-    movies = Movie.objects.filter(movie_type=movie_type, **filter_string)
+    movies = Movie.objects.filter(movie_type=movie_type, **filter_string).order_by('-id')
     context = {
         'movies': movies,
         'movie_type': movie_type,
