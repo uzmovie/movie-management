@@ -1,9 +1,9 @@
 <style>
 .custom-bg {
-
   padding: 15px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgb(162, 159, 159);
+
 }
 
 .text-light {
@@ -14,17 +14,17 @@
 .custom-link:hover {
   color: #ff4081;
 }
-
 </style>
 
 <div class="custom-bg text-light">
-  <h2>
+  <h2 style="animation: glow 2s infinite; font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px #5d3e3e; transition: all 0.3s ease;" onmouseover="this.style.color='#80c780'; this.style.textShadow='0 0 5px #00ff00';" onmouseout="this.style.color='#cbc1c1'; this.style.textShadow='2px 2px #000000';">
 Category</h2>
   <ul>
-    {% for category in categories %}
+   <h3> {% for category in categories %}
       <li class="mb-1">
         <a class="text-decoration-none text-light custom-link" href="?category={{category.id}}">{{ category.name }}</a>
       </li>
+       </h3>
       <ul>
         {% for subcategory in category.subcategory.all %}
           <li class="mb-1">
@@ -34,12 +34,14 @@ Category</h2>
       </ul>
     {% endfor %}
   </ul>
-  <h2>Type</h2>
+  <h2 style="animation: glow 2s infinite; font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px #000000; transition: all 0.3s ease;" onmouseover="this.style.color='#00ff00'; this.style.textShadow='0 0 5px #00ff00';" onmouseout="this.style.color='#ff0000'; this.style.textShadow='2px 2px #000000';">Type</h2>
   <ul>
-    {% for movie_type in movie_types %}
+    <h3>{% for movie_type in movie_types %}
       <li class="mb-1">
         <a class="text-decoration-none text-light custom-link" href="{% url 'type_wise_movie' movie_type.slug %}">{{ movie_type.name }}</a>
       </li>
+
     {% endfor %}
+    </h3>
   </ul>
 </div>
