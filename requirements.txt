@@ -10,3 +10,4 @@ redis
 docker
 dj-database-url
 kombu
+whitenoise
