@@ -13,6 +13,13 @@ from hitcount.views import HitCountDetailView
 from hitcount.views import get_hitcount_model
 from hitcount.views import HitCountMixin
 
+
+
+
+def movie_list(request):
+    movies = Movie.objects.all().order_by('-id')
+    return render(request, 'includes/movie-grid.html', {'movies': movies})
+
 def watch_movie(request, movie_id):
 
     movie = Movie.objects.get(id=movie_id)
@@ -43,7 +50,7 @@ def home_view(request):
 def type_wise_movie_view(request, slug):
     filter_string = movie_filter(request)
     movie_type = MovieType.objects.get(slug=slug)
-    movies = Movie.objects.filter(movie_type=movie_type, **filter_string).order_by('name', '-id', '-created_at')
+    movies = Movie.objects.filter(movie_type=movie_type, **filter_string).order_by('-id') # Bu yerda '-id' maydoni bo'yicha teskari tartibda saralash amalga oshiriladi
     context = {
         'movies': movies,
         'movie_type': movie_type,
@@ -75,7 +82,7 @@ class MovieDetailsView(HitCountDetailView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(MovieDetailsView, self).get_context_data(*args, **kwargs)
-        context['reviews'] = Review.objects.filter(movie=kwargs['object']).order_by('-id')
+        context['reviews'] = Review.objects.filter(movie=kwargs['object'])
         context['avg_rating'] = context['reviews'].aggregate(Avg('rating'))['rating__avg']
         return context
 

@@ -107,10 +107,10 @@ class Movie(BaseModel):
     davomiylogi = models.CharField(max_length=255,default='unknown',)
     ovozberishaktorlari = models.CharField(max_length=255,default='unknown',)
     rejesyor = models.CharField(max_length=255, default='unknown', )
-    homiy = models.CharField(max_length=255, default='unknown', )
     yoshcheklovi =  models.CharField(max_length=255, default='unknown', )
     davlat = models.CharField(max_length=255, default='unknown', )
-    created_at = models.DateTimeField(auto_now_add=True)
+    puldor_homiy = models.CharField(max_length=255, default='unknown', )
+
 
 
 
