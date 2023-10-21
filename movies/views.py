@@ -43,7 +43,7 @@ def home_view(request):
 def type_wise_movie_view(request, slug):
     filter_string = movie_filter(request)
     movie_type = MovieType.objects.get(slug=slug)
-    movies = Movie.objects.filter(movie_type=movie_type, **filter_string).order_by('-created_at')
+    movies = Movie.objects.filter(movie_type=movie_type, **filter_string).order_by('name', '-id', '-created_at')
     context = {
         'movies': movies,
         'movie_type': movie_type,

@@ -27,7 +27,7 @@ class MovieTypeAdmin(admin.ModelAdmin):
 # MovieAdmin uchun o'zgarishlar
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "slug", "movie_type",'is_premiere', )
+    list_display = ("id", "name", "slug", "movie_type",'is_premiere','created_at', )
     fields = ('name', 'categories', 'subcategories', 'actors', 'directors', 'thumbnail', 'movie_type', 'iframe_content',  'description',"fasl","qism",'is_premiere','janr','yili','tili','kompaniya','davomiylogi','ovozberishaktorlari','rejesyor','homiy','yoshcheklovi','davlat',)
 
 @admin.register(Episode)

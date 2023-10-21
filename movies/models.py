@@ -98,6 +98,8 @@ class Movie(BaseModel):
     is_premiere = models.BooleanField(default=True)
 
 
+
+
     janr = models.CharField(max_length=255, default='unknown', )
     yili = models.CharField(max_length=255, default='unknown',)
     tili = models.CharField(max_length=255,default='unknown',)
@@ -108,6 +110,7 @@ class Movie(BaseModel):
     homiy = models.CharField(max_length=255, default='unknown', )
     yoshcheklovi =  models.CharField(max_length=255, default='unknown', )
     davlat = models.CharField(max_length=255, default='unknown', )
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 
