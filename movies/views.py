@@ -42,19 +42,14 @@ def home_view(request):
     return render(request, 'pages/index.html')
 def type_wise_movie_view(request, slug):
     filter_string = movie_filter(request)
-    # hit_count = get_hitcount_model().objects.ge_for_object(filter_string)
-    # hits = hit_count.hits
-    # hit_count_response = HitCountMixin.hit_count(request,hit_count)
-    # if hit_count_response.hit_counted:
-    #     hits =+ 1
     movie_type = MovieType.objects.get(slug=slug)
-    movies = Movie.objects.filter(movie_type=movie_type, **filter_string).order_by('-id')
+    movies = Movie.objects.filter(movie_type=movie_type, **filter_string).order_by('-created_at')
     context = {
         'movies': movies,
         'movie_type': movie_type,
-        # 'hits': hits
     }
     return render(request, 'pages/type-wise-movies.html', context)
+
 
 
 def actor_details(request, actor_id):

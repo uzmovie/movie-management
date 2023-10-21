@@ -107,6 +107,7 @@ class Movie(BaseModel):
     rejesyor = models.CharField(max_length=255, default='unknown', )
     homiy = models.CharField(max_length=255, default='unknown', )
     yoshcheklovi =  models.CharField(max_length=255, default='unknown', )
+    davlat = models.CharField(max_length=255, default='unknown', )
 
 
 

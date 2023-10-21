@@ -50,6 +50,16 @@
     </div>
 
     <div class="col-lg-4 col-md-4">
+     <span class="d-block"> Davlat:
+
+          <b>{{ movie.davlat }}</b>
+
+      </span>
+    <span class="d-block">Fasl va qismlari :
+
+          <b>{{ movie.fasl }} </b>
+
+      </span>
       <h6>Name : {{ movie.name }}</h6>
       <span class="d-block">Actors :
         {% for actor in movie.actors.all %}
