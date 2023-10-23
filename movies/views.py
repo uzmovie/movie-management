@@ -17,7 +17,7 @@ from hitcount.views import HitCountMixin
 
 
 def movie_list(request):
-    movies = Movie.objects.all().order_by('-id')
+    movies = Movie.objects.all().order_by('id')
     return render(request, 'includes/movie-grid.html', {'movies': movies})
 
 def watch_movie(request, movie_id):
@@ -50,7 +50,7 @@ def home_view(request):
 def type_wise_movie_view(request, slug):
     filter_string = movie_filter(request)
     movie_type = MovieType.objects.get(slug=slug)
-    movies = Movie.objects.filter(movie_type=movie_type, **filter_string).order_by('-id') # Bu yerda '-id' maydoni bo'yicha teskari tartibda saralash amalga oshiriladi
+    movies = Movie.objects.filter(movie_type=movie_type, **filter_string).order_by('id') # Bu yerda '-id' maydoni bo'yicha teskari tartibda saralash amalga oshiriladi
     context = {
         'movies': movies,
         'movie_type': movie_type,
