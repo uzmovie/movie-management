@@ -11,4 +11,4 @@ docker
 dj-database-url
 kombu
 whitenoise
-django-jazzmin
+
