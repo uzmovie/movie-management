@@ -42,6 +42,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -177,3 +178,5 @@ LOGIN_REDIRECT_URL = '/'
 
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
+
+

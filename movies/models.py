@@ -110,6 +110,7 @@ class Movie(BaseModel):
     yoshcheklovi =  models.CharField(max_length=255, default='unknown', )
     davlat = models.CharField(max_length=255, default='unknown', )
     puldor_homiy = models.CharField(max_length=255, default='unknown', )
+    yoshkategoryasi = models.CharField(max_length=255, default='unknown', )
 
 
 
