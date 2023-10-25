@@ -12,3 +12,4 @@ dj-database-url
 kombu
 whitenoise
 
+

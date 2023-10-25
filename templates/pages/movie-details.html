@@ -25,12 +25,12 @@
     {{ episode.name }}
 </button>
 {% endfor %}
+ <span class="d-block">. :
 
-<span style="color: #eab1b1" class="d-block">. :
-
-          <b style="color: red">{{ movie.yoshkategoryasi }}</b>
+          <b style="color: red">{{ movie.yoshkategoryasi }} </b>
 
       </span>
+
 
       <span class="d-block">{{ movie.description }}</span>
       {% if reviews %}
@@ -53,16 +53,6 @@
     </div>
 
     <div class="col-lg-4 col-md-4">
-    <span class="d-block"> Davlat:
-
-          <b>{{ movie.davlat }}</b>
-
-      </span>
-     <span class="d-block">Fasl va qismlari :
-
-          <b>{{ movie.fasl }}</b>
-
-      </span>
       <h6>Name : {{ movie.name }}</h6>
       <span class="d-block">Actors :
         {% for actor in movie.actors.all %}
@@ -81,7 +71,6 @@
           <b><a href="?category={{category.id}}">{{ category.name }}</a>, </b>
         {% endfor %}
       </span>
-
      <span class="d-block">Janr :
 
           <b><a href="">{{ movie.janr }}</a>, </b>
@@ -115,7 +104,7 @@
       </span>
     <span class="d-block">Homiy :
 
-          <b>{{ movie.puldor_homiy }}</b>
+          <b>{{ movie.puldor_homiy }} </b>
 
       </span>
 
@@ -128,6 +117,11 @@
      <span class="d-block">Ovoz Berishdi :
 
           <b><a href="">{{ movie.ovozberishaktorlari }}</a>, </b>
+
+      </span>
+     <span class="d-block">Davlat :
+
+          <b>{{ movie.davlat }} </b>
 
       </span>
              <div class="hit-count">
