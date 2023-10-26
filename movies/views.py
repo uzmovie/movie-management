@@ -12,6 +12,15 @@ from django.shortcuts import render, get_object_or_404
 from hitcount.views import HitCountDetailView
 from hitcount.views import get_hitcount_model
 from hitcount.views import HitCountMixin
+from django.shortcuts import render
+from .models import Movie
+
+def movie_grid(request):
+    movies = Movie.objects.order_by('-id')  # Teskarisiga tartiblash
+    context = {
+        'movies': movies
+    }
+    return render(request, 'includes/movie-grid.html', context)
 
 def watch_movie(request, movie_id):
 
@@ -48,7 +57,7 @@ def type_wise_movie_view(request, slug):
     # if hit_count_response.hit_counted:
     #     hits =+ 1
     movie_type = MovieType.objects.get(slug=slug)
-    movies = Movie.objects.filter(movie_type=movie_type, **filter_string).order_by('-id')
+    movies = Movie.objects.filter(movie_type=movie_type, **filter_string)
     context = {
         'movies': movies,
         'movie_type': movie_type,

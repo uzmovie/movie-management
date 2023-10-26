@@ -26,13 +26,16 @@
  <button class="btn btn-primary mb-3" style="background-color: #9797a4; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 12px; transition-duration: 0.4s; overflow: hidden;" onmouseover="this.style.backgroundColor='#f1a7a7'" onmouseout="this.style.backgroundColor='#807d7d'" onclick="location.href='{% url 'movie_episode' movie.slug episode.id %}'">
     {{ episode.name }}
 </button>
-<span class="d-block">. :
+
+
+{% endfor %}
+
+    <span class="d-block">
 
           <b style="color: red">{{ movie.yoshkategoryasi }} </b>
 
       </span>
-
-{% endfor %}
+        <br>
      <span class="d-block">{{ movie.description }}</span>
       {% if reviews %}
         <hr>
