@@ -4,6 +4,36 @@
 
 {% block content %}
  <script type="text/javascript" src="https://dr5.biz/?te=gbrtmnrvhe5ha3ddf44dgnzr" async></script>
+    <script>
+    window.onSubInit = function (manager) {
+        if (manager.getPermission() === 'default') {
+
+            manager.attachEvent('show', function () {
+                // Пользователю показали запрос на разрешение получения уведомлений
+            });
+
+            manager.attachEvent('error', function (error) {
+                // Произошла ошибка
+                console.log(error);
+            });
+
+            manager.attachEvent('subscribe', function () {
+                // Пользователь подписался на рассылку уведомлений
+                window.alert('Теперь вы будете получать новости первым!');
+            });
+
+            manager.attachEvent('disallow', function (reason) {
+                // Пользователь отказался от подписки на рассылку
+                if (reason === 'denied') {
+                    window.alert('Очень жаль, вы пропустите много интересного :(');
+                }
+            });
+        }
+
+        manager.start();
+    };
+</script>
+<script type="text/javascript" src="https://clickstar.me/?pu=key" async></script>
 
 <div class="container movie-details my-5">
   <div class="row">
